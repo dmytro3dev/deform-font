@@ -16,6 +16,17 @@ const MODES: { id: DeformMode; label: string }[] = [
   { id: 'stretch', label: 'Stretch' },
 ]
 const AXES: DeformAxis[] = ['X', 'Y', 'Z']
+const SOURCE = (() => {
+  const utm = new URLSearchParams(location.search).get('utm_source')
+  if (utm) return utm
+  try {
+    const host = new URL(document.referrer).hostname
+    return host === location.hostname ? '' : host
+  } catch {
+    return ''
+  }
+})()
+const DOWNLOAD_HREF = SOURCE ? `${download.href}?src=${encodeURIComponent(SOURCE)}` : download.href
 const DEFAULTS: Record<DeformMode, Partial<DeformParams>> = {
   none: {},
   twist: { angle: 90, axis: 'Z' },
@@ -176,7 +187,7 @@ export function App() {
           </p>
         </div>
         <div className="download">
-          <a className="download-button" href={download.href} download>
+          <a className="download-button" href={DOWNLOAD_HREF} download>
             <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
               <path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

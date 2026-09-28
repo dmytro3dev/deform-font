@@ -1,8 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "deform-font",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-09-01",
   "assets": {
-    "directory": "./dist"
-  }
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/downloads/*"]
+  },
+  "analytics_engine_datasets": [
+    {
+      "binding": "DOWNLOADS",
+      "dataset": "deform_font_downloads"
+    }
+  ]
 }
