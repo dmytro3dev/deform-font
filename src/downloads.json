@@ -1,0 +1,11 @@
+{
+  "title": "Roboto Slab Bold",
+  "version": "1.0",
+  "href": "/downloads/roboto-slab-3d-v1.0.zip",
+  "bytes": 2457035,
+  "license": "Apache License 2.0",
+  "formats": [
+    "Blender .blend",
+    "three.js"
+  ]
+}

@@ -1,0 +1,7 @@
+Roboto Slab
+Copyright 2018 The Roboto Slab Project Authors (https://github.com/googlefonts/robotoslab)
+Licensed under the Apache License, Version 2.0 (see LICENSE.txt).
+
+3D meshes by dmytro3dev (https://dmytro3dev.com), derived from Roboto Slab Bold.
+Copyright 2026 dmytro3dev
+Changes: glyph outlines converted to closed quad meshes with a support loop and extruded to a depth of 0.4 units.
