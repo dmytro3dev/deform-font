@@ -23,6 +23,7 @@ const DEFAULTS: Record<DeformMode, Partial<DeformParams>> = {
   taper: { factor: 0.6, axis: 'Z' },
   stretch: { factor: 0.4, axis: 'Z' },
 }
+const INITIAL_DEFORM: DeformParams = { mode: 'none', angle: 90, factor: 0.6, axis: 'Z', limits: [0, 1] }
 
 type Column = {
   id: string
@@ -81,7 +82,7 @@ export function App() {
   const [hoverTwist, setHoverTwist] = useState(true)
   const [playing, setPlaying] = useState(false)
   const [materialId, setMaterialId] = useState('metal')
-  const [deform, setDeform] = useState<DeformParams>({ mode: 'none', angle: 90, factor: 0.6, axis: 'Z', limits: [0, 1] })
+  const [deform, setDeform] = useState<DeformParams>(INITIAL_DEFORM)
   const [space, setSpace] = useState<DeformSpace>('glyph')
   const [stats, setStats] = useState<Record<string, SceneStats>>({})
   const [tab, setTab] = useState('quads')
@@ -105,6 +106,13 @@ export function App() {
   const onStats = useCallback((id: string, s: SceneStats) => setStats((prev) => ({ ...prev, [id]: s })), [])
   const patch = (p: Partial<DeformParams>) => setDeform((d) => ({ ...d, ...p }))
   const usesAngle = deform.mode === 'twist' || deform.mode === 'bend'
+  const isInitial =
+    space === 'glyph' &&
+    (Object.keys(INITIAL_DEFORM) as (keyof DeformParams)[]).every((k) => String(deform[k]) === String(INITIAL_DEFORM[k]))
+  const reset = () => {
+    setDeform(INITIAL_DEFORM)
+    setSpace('glyph')
+  }
 
   const sceneProps = { text, level, curveSegments, wireframe, materialId, deform, space, playing, onStats }
   const status = <div className="status">{error ? `Failed to load: ${error}` : 'Loading font…'}</div>
@@ -232,6 +240,9 @@ export function App() {
               />
             </fieldset>
           </div>
+          <button type="button" className="reset" disabled={isInitial} onClick={reset}>
+            Reset
+          </button>
         </div>
       </section>
 

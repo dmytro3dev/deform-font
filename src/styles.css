@@ -203,6 +203,30 @@ body {
   width: auto;
 }
 
+.reset {
+  font: inherit;
+  font-size: 12px;
+  height: 30px;
+  padding: 0 12px;
+  margin-left: auto;
+  border-radius: 8px;
+  border: 1px solid #3a3c44;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, opacity 0.15s;
+}
+
+.reset:hover:not(:disabled) {
+  color: #e8e6e1;
+  border-color: #5a5c66;
+}
+
+.reset:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
 input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
