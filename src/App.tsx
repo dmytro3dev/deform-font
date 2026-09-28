@@ -168,7 +168,7 @@ export function App() {
     <div className="page">
       <header className="masthead">
         <div>
-          <p className="kicker">3D font · Roboto Slab Bold</p>
+          <p className="kicker">3D font · Roboto Slab Bold · English &amp; Ukrainian</p>
           <h1>A font built to deform</h1>
           <p className="lede">
             Same text, same material, same deformation. On the left a standard extrude, on the right a clean quad mesh.
