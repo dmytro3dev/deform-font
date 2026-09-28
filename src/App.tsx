@@ -240,8 +240,10 @@ export function App() {
               />
             </fieldset>
           </div>
-          <button type="button" className="reset" disabled={isInitial} onClick={reset}>
-            Reset
+          <button type="button" className="reset" disabled={isInitial} onClick={reset} aria-label="Reset deform" title="Reset deform">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+              <path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         </div>
       </section>

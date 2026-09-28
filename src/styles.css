@@ -71,6 +71,7 @@ body {
 
 .deform-row {
   border-top: 1px solid var(--line);
+  column-gap: 14px;
 }
 
 .field {
@@ -179,7 +180,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 20px;
+  gap: 8px 14px;
   margin: 0;
   padding: 0;
   border: 0;
@@ -206,8 +207,11 @@ body {
 .reset {
   font: inherit;
   font-size: 12px;
+  display: grid;
+  place-items: center;
+  width: 30px;
   height: 30px;
-  padding: 0 12px;
+  padding: 0;
   margin-left: auto;
   border-radius: 8px;
   border: 1px solid #3a3c44;
@@ -230,7 +234,7 @@ body {
 input[type='range'] {
   -webkit-appearance: none;
   appearance: none;
-  width: 110px;
+  width: 96px;
   height: 30px;
   margin: 0;
   background: transparent;
@@ -284,7 +288,7 @@ input[type='range']:focus-visible {
 
 .dual {
   position: relative;
-  width: 110px;
+  width: 96px;
   height: 30px;
 }
 
