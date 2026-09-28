@@ -3,6 +3,8 @@
 Roboto Slab Bold as clean quad meshes that can be twisted and bent without breaking.
 The demo compares it side by side with a standard extruded 3D font.
 
+Live demo: https://deform-font.dmytro3dev.com
+
 A standard extrude has caps made of long triangles with nothing inside the letter, so
 deformation folds them into flat facets. Here every glyph is an all-quad mesh subdivided
 with Catmull-Clark, so it stays smooth.
